@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+@import '../node_modules/bootstrap/scss/dropdown.scss';
+
+.sidebar-filtered-list > li {
+    background: #393d61;
+    border-radius: 2px;
+    padding: 0.3rem 0.7rem;
+    margin: 0.2rem;
+    font-size: 0.85rem;
+    transition: all 0.2s ease-in;
+    color: #f1f1f1;
+    &:hover {
+        background: #4f5588;
+        color: #fff;
+    }
+}
