@@ -3,7 +3,7 @@ import HomeComponent from "../pages/home.vue";
 import GettingStartedComponent from "../pages/getting-started.vue";
 import TemplatesComponent from "../pages/templates.vue";
 import ContactComponent from "../pages/contact.vue";
-import AccessibilityComponent from "../pages/Accessibility.vue";
+import AccessibilityComponent from "../pages/accessibility.vue";
 import ChangelogComponent from "../pages/changelog.vue";
 import BreadcrumbsComponent from "../pages/components/breadcrumbs.vue";
 import ButtonsComponent from "../pages/components/buttons.vue";

@@ -13,7 +13,7 @@
         <div
             id="sidebar"
             ref="sidebar"
-            class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-[#4f5588] transition-all duration-200 ease-in-out"
+            class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-[#4f5588] transition-all duration-200 ease-in-out"
             :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'"
         >
             <!-- Sidebar header -->
@@ -45,7 +45,7 @@
                 <Menu as="div" class="relative inline-block text-left">
                     <div>
                         <MenuButton
-                            class="inline-flex justify-center w-full rounded-md shadow-sm px-2 py bg-transparent text-sm font-medium text-gray-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-transparent"
+                            class="border-0 inline-flex justify-center w-full rounded-md shadow-sm px-2 py bg-transparent text-sm font-medium text-gray-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-transparent"
                         >
                             Reactjs/ Vuejs
                             <svg
@@ -119,7 +119,7 @@
             </div>
 
             <!-- Links -->
-            <div class="space-y-8">
+            <div class="space-y-8 overflow-y-auto">
                 <!-- Pages group -->
                 <div>
                     <ul class="mt-3">
@@ -138,7 +138,7 @@
                                 class="block px-3 text-gray-200 hover:text-white truncate transition duration-150"
                                 :class="
                                     currentRoute.fullPath.includes(
-                                        'ecommerce'
+                                        'components'
                                     ) && 'hover:text-gray-200'
                                 "
                                 href="#0"
@@ -173,27 +173,17 @@
                                 </div>
                             </a>
                             <div
-                                class="bg-[#3e436b] px-3 lg:hidden lg:sidebar-expanded:block 2xl:block"
+                                class="bg-[#3e436b] px-3 lg:hidden lg:sidebar-expanded:block 2xl:block mt-2"
                             >
                                 <ul
-                                    class="inline-block list-components sidebar-filtered-list my-4"
+                                    class="inline-block list-components sidebar-filtered-list my-4 w-full"
                                     :class="!parentLink.expanded && 'hidden'"
                                 >
-                                    <!-- <input
-                                        id="filterComponents"
-                                        class="form-control sbi-01 sidebar-filter-input mt-3 mb-3 bg-transparent w-full border-b"
-                                        type="text"
-                                        name="sbi-01"
-                                        value
-                                        placeholder="Find a component"
-                                        v-model="searchQuery"
-                                    /> -->
-
                                     <label
                                         class="relative text-gray-400 focus-within:text-gray-600 block mb-4"
                                     >
                                         <svg
-                                            class="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/3 left-3"
+                                            class="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 right-1"
                                             fill="currentColor"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 30 30"
@@ -208,38 +198,20 @@
                                             type="text"
                                             name="search"
                                             placeholder="Search..."
-                                            class="form-input border border-gray-900 py-2 px-2 bg-white placeholder-gray-400 text-gray-500 appearance-none w-full block pl-14 focus:outline-none"
+                                            class="form-input border border-gray-900 py-2 pl-2 pr-10 bg-white placeholder-gray-400 text-gray-500 appearance-none w-full block focus:outline-none"
                                         />
                                     </label>
-
-                                    <!-- <div class="flex border rounded my-2">
-                                        <input
-                                            type="text"
-                                            v-model="searchQuery"
-                                            class="px-3 py-1 w-full"
-                                            placeholder="Search..."
-                                        />
-                                        <button
-                                            class="flex items-center justify-center px-4 border-l bg-white"
-                                        >
-                                            <svg
-                                                class="w-6 h-6 text-gray-600"
-                                                fill="currentColor"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path
-                                                    d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
-                                                />
-                                            </svg>
-                                        </button>
-                                    </div> -->
                                     <li
-                                        class="inline-block"
+                                        class="inline-block my-1 mx-1"
                                         v-for="(
                                             item, index
                                         ) in filteredComponents"
                                         :key="index + '-menu-second'"
+                                        :class="{
+                                            active: currentRoute.fullPath.includes(
+                                                item.path
+                                            ),
+                                        }"
                                     >
                                         <router-link :to="item.path">{{
                                             item.title
@@ -294,7 +266,7 @@ import DropwdownFilter from './sub-partials/DropdownFilter.vue'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 
 export default defineComponent({
-    name: 'Sidebar',
+    name: 'sidebar-partial',
     props: ['sidebarOpen'],
     components: {
         MenuItemLocal,
@@ -356,7 +328,7 @@ export default defineComponent({
             },
             {
                 title: 'Popover & Tooltip',
-                path: '/grid',
+                path: '/popover',
             },
             {
                 title: 'Notification',
@@ -385,7 +357,8 @@ export default defineComponent({
                 ? false
                 : storedSidebarExpanded === 'true'
         )
-        const currentRoute = useRouter().currentRoute.value
+        const route = useRouter()
+        const currentRoute = route.currentRoute.value
 
         const clickHandler = ({ target }) => {
             if (!sidebar.value || !trigger.value) return
@@ -425,6 +398,7 @@ export default defineComponent({
                     ?.classList.remove('sidebar-expanded')
             }
         })
+
         return {
             trigger,
             sidebar,

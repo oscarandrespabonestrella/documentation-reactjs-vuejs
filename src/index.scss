@@ -6,17 +6,108 @@
 @import '../node_modules/bootstrap/scss/variables';
 @import '../node_modules/bootstrap/scss/mixins';
 @import '../node_modules/bootstrap/scss/dropdown.scss';
+@import '../node_modules/prismjs/themes/prism-tomorrow.min.css';
+@import './mcc-bootstrap.css';
+
+html,
+body {
+    overflow-y: hidden;
+}
+
+@layer utilities {
+    @variants responsive {
+        .masonry-3-col {
+            column-count: 3;
+            column-gap: 1em;
+        }
+        .masonry-2-col {
+            column-count: 2;
+            column-gap: 1em;
+        }
+        .break-inside {
+            break-inside: avoid;
+        }
+    }
+}
+
+ol,
+ul,
+menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
 .sidebar-filtered-list > li {
-    background: #393d61;
-    border-radius: 2px;
-    padding: 0.3rem 0.7rem;
-    margin: 0.2rem;
-    font-size: 0.85rem;
-    transition: all 0.2s ease-in;
-    color: #f1f1f1;
-    &:hover {
-        background: #4f5588;
-        color: #fff;
+    & > a {
+        background: #393d61;
+        border-radius: 2px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.85rem;
+        transition: all 0.2s ease-in;
+        color: #f1f1f1;
+        display: inline-block;
+        &:hover {
+            background: #4f5588;
+            color: #fff;
+        }
+        &.router-link-active {
+            color: #4f5588;
+            background: #fff;
+        }
     }
+}
+
+code,
+kbd,
+samp,
+pre {
+    font-family: theme(
+        'fontFamily.mono',
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        'Liberation Mono',
+        'Courier New',
+        monospace
+    ); /* 1 */
+    font-size: 1em; /* 2 */
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    -webkit-appearance: button; /* 1 */
+    background-image: none; /* 2 */
+    border-style: solid;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 1 */
+    line-height: inherit; /* 1 */
+    color: inherit; /* 1 */
+    margin: 0; /* 2 */
+    padding: 0; /* 3 */
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button {
+    border-width: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
 }

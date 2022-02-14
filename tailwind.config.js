@@ -1,4 +1,4 @@
-module.exports = {  
+module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -7,5 +7,10 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-}
+  corePlugins: {
+    preflight: false,
+  },
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
+};
