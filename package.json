@@ -9,8 +9,10 @@
   "dependencies": {
     "@headlessui/vue": "^1.4.3",
     "@popperjs/core": "^2.11.2",
+    "ep-feather-icons": "file:ep-feather-icons-1.0.0.tgz",
     "prismjs": "^1.26.0",
     "vue": "^3.2.25",
+    "vue-flatpickr-component": "^9.0.5",
     "vue-prism-component": "^2.0.0",
     "vue-router": "^4.0.12",
     "vue3-clipboard": "^1.0.0",
