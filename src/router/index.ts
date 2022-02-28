@@ -20,6 +20,7 @@ import PaginationComponent from "../pages/components/pagination.vue";
 import PopoverComponent from "../pages/components/popover.vue";
 import TableComponent from "../pages/components/table.vue";
 import TabsComponent from "../pages/components/tabs.vue";
+import ProgressComponent from "../pages/components/progress.vue";
 
 const routes: any[] = [
     {
@@ -131,6 +132,11 @@ const routes: any[] = [
         path: '/tabs',
         name: 'Tabs',
         component: TabsComponent
+    },
+    {
+        path: '/progress',
+        name: 'Progress',
+        component: ProgressComponent
     },
 
 ];

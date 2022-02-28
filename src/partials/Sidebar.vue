@@ -45,7 +45,7 @@
                 <Menu as="div" class="relative inline-block text-left">
                     <div>
                         <MenuButton
-                            class="border-0 inline-flex justify-center w-full rounded-md shadow-sm px-2 py bg-transparent text-sm font-medium text-gray-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-transparent"
+                            class="border-0 inline-flex justify-center w-full rounded-md  px-2 py bg-transparent text-sm font-medium text-gray-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-transparent"
                         >
                             Reactjs/ Vuejs
                             <svg
@@ -123,11 +123,9 @@
                 <!-- Pages group -->
                 <div>
                     <ul class="mt-3">
-                        <MenuItemLocal path="/">
+                        <MenuItemLocal path="/getting-started">
                             Getting Started
                         </MenuItemLocal>
-                        <MenuItemLocal path="/"> Templates </MenuItemLocal>
-                        <MenuItemLocal path="/"> Contact </MenuItemLocal>
                         <DropwdownFilter
                             v-slot="parentLink"
                             :activeCondition="
@@ -220,9 +218,11 @@
                                 </ul>
                             </div>
                         </DropwdownFilter>
-                        <MenuItemLocal path="/"> Accessibility </MenuItemLocal>
-                        <MenuItemLocal path="/"> Changelog </MenuItemLocal>
-                        <MenuItemLocal path="/"> Contact </MenuItemLocal>
+                        <MenuItemLocal path="/accessibility" >
+                            Accessibility
+                        </MenuItemLocal>
+                        <MenuItemLocal path="/changelog"> Changelog </MenuItemLocal>
+                        <MenuItemLocal :mail="true" path="itecmcc@europarl.europa.eu"> Contact </MenuItemLocal>
                     </ul>
                 </div>
             </div>
@@ -287,7 +287,7 @@ export default defineComponent({
                 path: '/buttons',
             },
             {
-                title: 'Navs',
+                title: 'Navs & Tabs',
                 path: '/navs',
             },
             {
@@ -334,9 +334,10 @@ export default defineComponent({
                 title: 'Notification',
                 path: '/Notification',
             },
+
             {
-                title: 'Tabs',
-                path: '/tabs',
+                title: 'Progress',
+                path: '/progress',
             },
         ]
 
